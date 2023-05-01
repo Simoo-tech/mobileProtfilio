@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mobile-protfilio/static/css/main.e66ca8ec.css",
-    "main.js": "/mobile-protfilio/static/js/main.3f3b6b23.js",
-    "static/js/787.c28778bb.chunk.js": "/mobile-protfilio/static/js/787.c28778bb.chunk.js",
-    "index.html": "/mobile-protfilio/index.html",
-    "main.e66ca8ec.css.map": "/mobile-protfilio/static/css/main.e66ca8ec.css.map",
-    "main.3f3b6b23.js.map": "/mobile-protfilio/static/js/main.3f3b6b23.js.map",
-    "787.c28778bb.chunk.js.map": "/mobile-protfilio/static/js/787.c28778bb.chunk.js.map"
+    "main.css": "/mobileProtfilio/static/css/main.e66ca8ec.css",
+    "main.js": "/mobileProtfilio/static/js/main.af38fc2b.js",
+    "static/js/787.c28778bb.chunk.js": "/mobileProtfilio/static/js/787.c28778bb.chunk.js",
+    "index.html": "/mobileProtfilio/index.html",
+    "main.e66ca8ec.css.map": "/mobileProtfilio/static/css/main.e66ca8ec.css.map",
+    "main.af38fc2b.js.map": "/mobileProtfilio/static/js/main.af38fc2b.js.map",
+    "787.c28778bb.chunk.js.map": "/mobileProtfilio/static/js/787.c28778bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e66ca8ec.css",
-    "static/js/main.3f3b6b23.js"
+    "static/js/main.af38fc2b.js"
   ]
 }
