@@ -9,9 +9,9 @@ import { WebShare } from "./WebShare";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router basename="mobile-protfilio">
+    <Router basename="/mobile-protfilio">
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" exact element={<App />} />
         <Route path="webshare" element={<WebShare />} />
       </Routes>
     </Router>
