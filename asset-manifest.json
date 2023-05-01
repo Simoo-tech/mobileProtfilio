@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mobileProtfilio/static/css/main.e66ca8ec.css",
-    "main.js": "/mobileProtfilio/static/js/main.af38fc2b.js",
+    "main.js": "/mobileProtfilio/static/js/main.6ebb2c34.js",
     "static/js/787.c28778bb.chunk.js": "/mobileProtfilio/static/js/787.c28778bb.chunk.js",
     "index.html": "/mobileProtfilio/index.html",
     "main.e66ca8ec.css.map": "/mobileProtfilio/static/css/main.e66ca8ec.css.map",
-    "main.af38fc2b.js.map": "/mobileProtfilio/static/js/main.af38fc2b.js.map",
+    "main.6ebb2c34.js.map": "/mobileProtfilio/static/js/main.6ebb2c34.js.map",
     "787.c28778bb.chunk.js.map": "/mobileProtfilio/static/js/787.c28778bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e66ca8ec.css",
-    "static/js/main.af38fc2b.js"
+    "static/js/main.6ebb2c34.js"
   ]
 }
