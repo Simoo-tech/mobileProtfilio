@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/Simoo-tech/mobile-protfilio",
+  "homepage": "http://Simoo-tech.github.io/mobile-protfilio",
   "name": "mobile-protfilio",
   "version": "0.1.0",
   "private": true,
@@ -8,7 +8,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
-    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-avatar": "^5.0.3",
     "react-bootstrap": "^2.7.4",
@@ -44,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
