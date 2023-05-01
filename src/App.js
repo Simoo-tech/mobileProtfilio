@@ -108,7 +108,7 @@ function App() {
   };
 
   return (
-    <div className="App ">
+    <div className="App">
       {/* pass props to footer for edit button to edit all data after submit it */}
       <Footer
         buttonData={AddData}
