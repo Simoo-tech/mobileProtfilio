@@ -71,7 +71,6 @@ function SocialLinks({
     const icon = e.target.value;
     setTelegram(icon);
   };
-  console.log(facebook);
   return (
     <section className="social-links section">
       <div className="container">

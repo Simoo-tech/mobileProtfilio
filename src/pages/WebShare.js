@@ -1,6 +1,6 @@
 import React from "react";
 import Avatar from "react-avatar";
-import "./sass/phone.scss";
+import "../sass/phone.scss";
 import {
   BsFacebook,
   BsInstagram,
@@ -116,7 +116,8 @@ export const WebShare = () => {
               </a>
             </li>
           </ul>
-          <ul className="moreLinks">{newData.map((linkVal, index) => (
+          <ul className="moreLinks">
+            {newData.map((linkVal, index) => (
               <li
                 key={index}
                 className={
@@ -140,7 +141,8 @@ export const WebShare = () => {
                   <p>{linkVal.labelVal}</p>
                 </a>
               </li>
-            ))}</ul>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

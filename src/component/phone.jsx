@@ -12,7 +12,6 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
-import { Link } from "react-router-dom";
 function Phone({
   // get props
   name,

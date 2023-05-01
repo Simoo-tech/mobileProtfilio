@@ -49,7 +49,6 @@ function Footer({
     setTwitter(stwitter);
     setData(newData);
   };
-  console.log(newData);
 
   return (
     <footer className="footer col-12">
@@ -58,7 +57,7 @@ function Footer({
           <p> demo data </p>
           <BsDatabaseAdd />
         </button>
-        <Link to="webshare">
+        <Link to="/webshare">
           <p>Share Protfilio </p>
           <BsFillShareFill />
         </Link>

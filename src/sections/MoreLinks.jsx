@@ -2,6 +2,7 @@ import React from "react";
 import "../sass/sections.scss";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { TiDelete } from "react-icons/ti";
+import { Link } from "react-router-dom";
 function MoreLinks({ data, setData }) {
   // adding link
   const addLink = () => {
@@ -30,10 +31,10 @@ function MoreLinks({ data, setData }) {
           <div className="col-12 col-lg-3  section-info">
             <h5>Other Links</h5>
             <p>Add other links </p>
-            <a href="https://fontawesome.com/search" target="_blank" rel="">
+            <Link to="https://fontawesome.com/search" target="_blank" rel="">
               get icons from here
               <br /> (only free icons) <br />
-            </a>
+            </Link>
             <h3>Example:</h3>
             <p>
               the icon name is
