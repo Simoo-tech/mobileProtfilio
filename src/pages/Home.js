@@ -4,7 +4,7 @@ import "../App.scss";
 import Left from "../component/left";
 import Phone from "../component/phone";
 import Footer from "../component/footer";
-import  WebShare  from "./WebShare";
+import WebShare from "./WebShare";
 
 const Home = () => {
   // 1- Set Values
@@ -40,7 +40,10 @@ const Home = () => {
     localStorage.setItem("youtube", youtube ? youtube : "");
     localStorage.setItem("linked", linked ? linked : "");
     localStorage.setItem("email", email ? email : "");
-    localStorage.setItem("dataOtherLinks", JSON.stringify(data));
+    localStorage.setItem(
+      "dataOtherLinks",
+      JSON.stringify(data) ? JSON.stringify(data) : ""
+    );
 
     // alert on reload
     const unloadCallback = (event) => {
@@ -174,7 +177,21 @@ const Home = () => {
           data={data}
         />
         {/* the final page that stored all data and ready for share */}
-        <WebShare />
+        <WebShare
+          name={name}
+          about={about}
+          photo={photo}
+          facebook={facebook}
+          github={github}
+          instagram={instagram}
+          linked={linked}
+          twitter={twitter}
+          email={email}
+          telegram={telegram}
+          whatsapp={whatsapp}
+          youtube={youtube}
+          data={data}
+        />
       </div>
     </>
   );
