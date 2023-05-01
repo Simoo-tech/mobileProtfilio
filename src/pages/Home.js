@@ -4,9 +4,9 @@ import "../App.scss";
 import Left from "../component/left";
 import Phone from "../component/phone";
 import Footer from "../component/footer";
-import { WebShare } from "./WebShare";
+import  WebShare  from "./WebShare";
 
-export const Home = () => {
+const Home = () => {
   // 1- Set Values
   // Set Values For Details Section
   const [name, setName] = useState();
@@ -179,3 +179,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

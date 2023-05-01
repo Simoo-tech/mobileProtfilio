@@ -12,7 +12,7 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
-export const WebShare = () => {
+const WebShare = () => {
   // profile stored data
   const name = localStorage.getItem("name");
   const about = localStorage.getItem("about");
@@ -148,3 +148,5 @@ export const WebShare = () => {
     </div>
   );
 };
+
+export default WebShare;
