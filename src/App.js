@@ -5,7 +5,7 @@ import { WebShare } from "./pages/WebShare";
 
 function App() {
   return (
-    <Router basename="/mobile-protfilio">
+    <Router basename="/mobileProtfilio">
       <div className="App">
         <Routes>
           <Route path="/" exact element={<Home />} />
