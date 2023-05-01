@@ -5,7 +5,6 @@ import Left from "../component/left";
 import Phone from "../component/phone";
 import Footer from "../component/footer";
 import { WebShare } from "./WebShare";
-import { Helmet } from "react-helmet-async";
 
 export const Home = () => {
   // 1- Set Values
@@ -112,7 +111,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="App">
+      <div className="Home">
         {/* pass props to footer for edit button to edit all data after submit it */}
         <Footer
           buttonData={AddData}

@@ -7,10 +7,12 @@ function App() {
   return (
     <>
       <Router basename="/mobile-protfilio">
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/webshare" element={<WebShare />} />
-        </Routes>
+        <div className="App">
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/webshare" element={<WebShare />} />
+          </Routes>
+        </div>
       </Router>
     </>
   );
