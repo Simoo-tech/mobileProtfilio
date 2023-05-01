@@ -12,7 +12,7 @@ root.render(
     <Router basename="/mobile-protfilio">
       <Routes>
         <Route path="/" exact element={<App />} />
-        <Route path="webshare" element={<WebShare />} />
+        <Route path="/webshare" element={<WebShare />} />
       </Routes>
     </Router>
   </React.StrictMode>
