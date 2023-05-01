@@ -22,7 +22,6 @@ export const Home = () => {
   const [youtube, setYoutube] = useState();
   const [linked, setLinked] = useState();
   const [email, setEmail] = useState();
-  // Set value for other links section
 
   // make array of adding other link
   const [data, setData] = useState([]);
