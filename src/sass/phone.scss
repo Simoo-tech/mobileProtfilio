@@ -1,0 +1,121 @@
+.rightSection {
+  .hidden {
+    display: none !important;
+  }
+  position: relative;
+  height: 100vh;
+  .container {
+    width: 350px;
+    height: 80%;
+    border: solid black 8px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    -webkit-transform: translate(-50%, -30%);
+    -moz-transform: translate(-50%, -30%);
+    -ms-transform: translate(-50%, -30%);
+    -o-transform: translate(-50%, -30%);
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    .avatar {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      img {
+        object-fit: cover;
+      }
+    }
+    .detail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h4 {
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+      p {
+        line-height: 1.5;
+        text-align: center;
+        opacity: 66%;
+        font-size: 14px;
+      }
+    }
+    .socialLinks {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+      .link {
+        font-size: 25px;
+        a {
+          color: inherit;
+        }
+      }
+    }
+    .moreLinks {
+      margin-top: 20px;
+      li {
+        margin-bottom: 10px;
+        background-color: #f1f5f9;
+        padding: 10px 20px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        a {
+          text-decoration: none;
+          color: black;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          i {
+            color: rgb(141, 140, 140);
+            font-size: 15px;
+          }
+          p {
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+  &.webShare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+      border: none;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0%, 0%);
+      -webkit-transform: translate(0%, 0%);
+      -moz-transform: translate(0%, 0%);
+      -ms-transform: translate(0%, 0%);
+      -o-transform: translate(0%, 0%);
+      .row {
+        justify-content: center;
+        .avatar {
+          margin: 0;
+        }
+        .details {
+          justify-content: center;
+          h5 {
+            text-align: center;
+            margin-top: 10px;
+          }
+          p {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

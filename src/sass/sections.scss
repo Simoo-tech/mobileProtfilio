@@ -1,0 +1,178 @@
+.section {
+  .hidden {
+    display: none;
+  }
+  // main style for all section
+  .container {
+    .row {
+      justify-content: space-between;
+      margin: 40px 20px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      .section-info {
+        height: 100%;
+        p {
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+      }
+      .section-inputs {
+        background-color: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        .input-info {
+          display: flex;
+          flex-direction: column;
+          label {
+            padding: 5px 0px;
+          }
+          input,
+          textarea {
+            border: 1px solid #ddd;
+            padding: 6px;
+          }
+        }
+      }
+    }
+  }
+  // edit in style in social links section
+  &.social-links {
+    .container {
+      .section-inputs {
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+        div {
+          margin-bottom: 10px;
+          label {
+            margin-bottom: 5px;
+          }
+          .link-icon {
+            position: relative;
+            padding: 0px;
+            svg {
+              color: ghostwhite;
+              font-size: 25px;
+              top: 50%;
+              left: 0px;
+              position: absolute;
+              background-color: darkgreen;
+              height: 100%;
+              padding: 1px 4px;
+              transform: translateY(-50%);
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+            }
+            input {
+              padding-left: 28px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              width: 100%;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  // edit in style in other links section
+  &.more-links {
+    .container {
+      .row {
+        .section-info {
+          margin-bottom: 10px;
+          h3 {
+            margin-top: 10px;
+          }
+          a,
+          p {
+            font-size: 13px;
+            margin: 0;
+          }
+        }
+        div {
+          .add-btn {
+            width: 100%;
+            border: none;
+            padding: 10px 0px;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            transition: 0.2s;
+            -webkit-transition: 0.2s;
+            -moz-transition: 0.2s;
+            -ms-transition: 0.2s;
+            -o-transition: 0.2s;
+            position: relative;
+            right: 0;
+            svg {
+              font-size: 30px;
+            }
+            &:hover {
+              color: white;
+            }
+            &.hidden {
+              display: none;
+              svg {
+                display: none;
+              }
+            }
+          }
+          .link-holder {
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            gap: 5px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+              0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            position: relative;
+            .input-info {
+              display: flex;
+              justify-content: start;
+              flex-direction: column;
+              label {
+                padding: 5px 0px;
+              }
+              input {
+                border: 1px solid #ddd;
+                padding: 3px 6px;
+              }
+            }
+            svg {
+              color: red;
+              position: absolute;
+              right: -12px;
+              top: -12px;
+              font-size: 35px;
+              display: none;
+            }
+            &:hover svg {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}

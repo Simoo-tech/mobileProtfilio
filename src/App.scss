@@ -1,0 +1,80 @@
+@use "./sass/_responsive" as *;
+.App {
+  max-height: 100vh;
+  overflow: hidden;
+  .leftSection {
+    float: left;
+    background-color: #f1f5f9;
+    padding: 0;
+    margin: 0px;
+    .sections {
+      overflow-y: scroll;
+      max-height: 95vh;
+    }
+  }
+  footer {
+    background-color: white;
+    z-index: 10;
+    border-top: #ddd solid 1px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    div {
+      display: flex;
+      button,
+      a {
+        color: black;
+        text-decoration: none;
+        transition: 0.5s;
+        background-color: white;
+        border: none;
+        padding: 0px 15px;
+        height: 100%;
+        display: flex;
+        width: fit-content;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        border-right: 2px solid #ddd;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -ms-transition: 0.5s;
+        -o-transition: 0.5s;
+        p {
+          font-size: 14px;
+        }
+        svg {
+          font-size: 14px;
+        }
+        &:hover {
+          background-color: rgb(169, 169, 169);
+        }
+        &:nth-child(1) {
+          border-left: 2px solid #ddd;
+        }
+      }
+    }
+    .copyright {
+      padding-right: 10px;
+    }
+  }
+  .rightSection {
+    float: right;
+    padding: 0;
+    margin: 0px;
+  }
+  /*************Responsive***************/
+  @include breakpoint(smallphone) {
+    footer {
+      justify-content: center;
+      button,
+      a {
+        font-size: 13px;
+        p,
+        svg {
+          font-size: 13px !important;
+        }
+      }
+    }
+  }
+}
