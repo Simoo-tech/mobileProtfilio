@@ -116,7 +116,7 @@ const WebShare = () => {
               </a>
             </li>
           </ul>
-          <ul className="moreLinks">
+          {/* <ul className="moreLinks">
             {newData.map((linkVal, index) => (
               <li
                 key={index}
@@ -142,7 +142,7 @@ const WebShare = () => {
                 </a>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </div>

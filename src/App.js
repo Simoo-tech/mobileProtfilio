@@ -9,7 +9,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" exact element={<Home />} />
-          {/* <Route path="/webshare" element={<WebShare />} /> */}
+          <Route path="/webshare" element={<WebShare />} />
         </Routes>
       </div>
     </BrowserRouter>

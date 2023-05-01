@@ -4,7 +4,7 @@ import "../App.scss";
 import Left from "../component/left";
 import Phone from "../component/phone";
 import Footer from "../component/footer";
-// import WebShare from "./WebShare";
+import WebShare from "./WebShare";
 
 const Home = () => {
   // 1- Set Values
@@ -177,7 +177,7 @@ const Home = () => {
           data={data}
         />
         {/* the final page that stored all data and ready for share */}
-        {/* <WebShare
+        <WebShare
           name={name}
           about={about}
           photo={photo}
@@ -191,7 +191,7 @@ const Home = () => {
           whatsapp={whatsapp}
           youtube={youtube}
           data={data}
-        /> */}
+        />
       </div>
     </>
   );
