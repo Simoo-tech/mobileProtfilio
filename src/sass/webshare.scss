@@ -1,0 +1,32 @@
+.socialLinksShare {
+  .hidden {
+    display: none !important;
+  }
+  gap: 7px;
+  .link {
+    font-size: 25px;
+    a {
+      color: inherit;
+    }
+  }
+}
+.moreLinksShare {
+  margin-top: 20px;
+  a {
+    width: 40%;
+    display: flex;
+    margin-bottom: 10px;
+    background-color: #f1f5f9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    p {
+      text-transform: capitalize;
+    }
+  }
+}

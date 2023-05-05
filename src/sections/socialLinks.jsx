@@ -11,196 +11,147 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
+import { Container, Grid, Typography } from "@material-ui/core";
 
 function SocialLinks({
   // get props for input function & onchange
-  setFacebook,
-  setGitub,
-  setEmail,
-  setInstagram,
-  setTwitter,
-  setLinked,
-  setWhatsapp,
-  setYoutube,
-  setTelegram,
-  //get props for input Value
-  facebook,
-  github,
-  instagram,
-  linked,
-  twitter,
-  email,
-  telegram,
-  whatsapp,
-  youtube,
+  clientData,
+  setClientData,
 }) {
+  const handleChange = (e) => {
+    setClientData({ ...clientData, [e.target.name]: e.target.value });
+  };
   // set new value icon
-  const faceIcon = (e) => {
-    const icon = e.target.value;
-    setFacebook(icon);
-  };
-  const gitIcon = (e) => {
-    const icon = e.target.value;
-    setGitub(icon);
-  };
-  const emailIcon = (e) => {
-    const icon = e.target.value;
-    setEmail(icon);
-  };
-  const instaIcon = (e) => {
-    const icon = e.target.value;
-    setInstagram(icon);
-  };
-  const twiteIcon = (e) => {
-    const icon = e.target.value;
-    setTwitter(icon);
-  };
-  const linkedIcon = (e) => {
-    const icon = e.target.value;
-    setLinked(icon);
-  };
-  const whatsIcon = (e) => {
-    const icon = e.target.value;
-    setWhatsapp(icon);
-  };
-  const youtubeIcon = (e) => {
-    const icon = e.target.value;
-    setYoutube(icon);
-  };
-  const teleIcon = (e) => {
-    const icon = e.target.value;
-    setTelegram(icon);
-  };
   return (
-    <section className="social-links section">
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-lg-3 section-info">
-            <h5>Social Links</h5>
-            <p>Add some social media links</p>
-          </div>
-          <div className="col-12 col-lg-9 section-inputs">
-            <div className="col-12 col-lg-5 facebook">
+    <Container component="section" className="social-links section">
+      <Grid container justifyContent="space-between">
+        <Grid item lg={2} className="section-info">
+          <Typography variant="h6">Social Links</Typography>
+          <Typography variant="body2">Add some social media links</Typography>
+        </Grid>
+        <Grid item lg={9} className="section-inputs">
+          <Grid container spacing={3}>
+            <Grid item lg={6} className="facebook">
               <label htmlFor="facebook">Facebook</label>
               <div className="link-icon">
                 <BsFacebook />
                 <input
                   type="url"
                   name="facebook"
-                  value={facebook}
-                  onChange={faceIcon}
+                  value={clientData.facebook}
+                  onChange={handleChange}
                   placeholder="https://fb.com/elonmusk"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 github">
+            </Grid>
+            <Grid item lg={6} className="github">
               <label htmlFor="github">Github</label>
               <div className="link-icon">
                 <BsGithub />
                 <input
                   type="url"
                   name="github"
-                  onChange={gitIcon}
-                  value={github}
+                  onChange={handleChange}
+                  value={clientData.github}
                   placeholder="https://github.com/elonmusk"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 twitter">
+            </Grid>
+            <Grid item lg={6} className="twitter">
               <label htmlFor="twitter">Twitter</label>
               <div className="link-icon">
                 <BsTwitter />
                 <input
                   type="url"
                   name="twitter"
-                  value={twitter}
-                  onChange={twiteIcon}
+                  value={clientData.twitter}
+                  onChange={handleChange}
                   placeholder="https://twitter.com/elonmusk"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 instagram">
+            </Grid>
+            <Grid item lg={6} className="instagram">
               <label htmlFor="instagram">Instagram</label>
               <div className="link-icon">
                 <BsInstagram />
                 <input
                   type="url"
                   name="instagram"
-                  value={instagram}
-                  onChange={instaIcon}
+                  value={clientData.instagram}
+                  onChange={handleChange}
                   placeholder="https://instagram.com/elonmusk"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 telegram">
+            </Grid>
+            <Grid item lg={6} className="telegram">
               <label htmlFor="telegram">Telegram</label>
               <div className="link-icon">
                 <BsTelegram />
                 <input
                   type="url"
                   name="telegram"
-                  value={telegram}
-                  onChange={teleIcon}
+                  value={clientData.telegram}
+                  onChange={handleChange}
                   placeholder="https://t.me/elonmusk"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 whatsapp">
+            </Grid>
+            <Grid item lg={6} className="whatsapp">
               <label htmlFor="whatsapp">Whatsapp</label>
               <div className="link-icon">
                 <BsWhatsapp />
                 <input
                   type="tel"
                   name="whatsapp"
-                  value={whatsapp}
-                  onChange={whatsIcon}
+                  value={clientData.whatsapp}
+                  onChange={handleChange}
                   placeholder="+20121664812"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 youtube">
+            </Grid>
+            <Grid item lg={6} className="youtube">
               <label htmlFor="youtube">Youtube </label>
               <div className="link-icon">
                 <BsYoutube />
                 <input
                   type="url"
-                  name="youtube "
-                  value={youtube}
-                  onChange={youtubeIcon}
+                  name="youtube"
+                  value={clientData.youtube}
+                  onChange={handleChange}
                   placeholder="https://youtube.com/elonmusk"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 linkedin">
+            </Grid>
+            <Grid item lg={6} className="linkedin">
               <label htmlFor="linkedin">Linkedin</label>
               <div className="link-icon">
                 <BsLinkedin />
                 <input
                   type="url"
-                  name="linkedin "
-                  value={linked}
-                  onChange={linkedIcon}
+                  name="linked"
+                  value={clientData.linked}
+                  onChange={handleChange}
                   placeholder="https://linkedin.com/elonmusk"
                 />
               </div>
-            </div>
-            <div className="col-12 col-lg-5 email">
+            </Grid>
+            <Grid item lg={6} className="email">
               <label htmlFor="email">Email</label>
               <div className="link-icon flex-row d-flex">
                 <HiOutlineMail />
                 <input
                   type="email"
                   name="email"
-                  value={email}
-                  onChange={emailIcon}
+                  value={clientData.email}
+                  onChange={handleChange}
                   placeholder="elonmusk@gmail.com"
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

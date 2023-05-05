@@ -9,7 +9,9 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/webshare" element={<WebShare />} />
+          <Route path="/share">
+            <Route path=":id" element={<WebShare />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

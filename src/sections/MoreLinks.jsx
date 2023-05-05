@@ -1,12 +1,16 @@
 import React from "react";
 import "../sass/sections.scss";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import { Container, Grid, Typography } from "@material-ui/core";
+
 function MoreLinks({ data, setData }) {
+  // add style
+
   // adding link
   const addLink = () => {
-    setData([...data, { labelVal: "", urlVal: "", iconVal: "", iconType: "" }]);
+    setData([...data, { labelVal: "", urlVal: "", iconName: "" }]);
   };
 
   // handle delete links
@@ -25,89 +29,72 @@ function MoreLinks({ data, setData }) {
   };
 
   return (
-    <section className="more-links section">
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-lg-3  section-info">
-            <h5>Other Links</h5>
-            <p>Add other links </p>
-            <Link to="https://fontawesome.com/search" target="_blank" rel="">
-              get icons from here
-              <br /> (only free icons) <br />
-            </Link>
-            <h3>Example:</h3>
-            <p>
-              the icon name is
-              <br />
-              <code>class="facebook" without fa</code>
-            </p>
-            <p>
-              the icon type is
-              <br />
-              <code>class="brands" without fa</code>
-            </p>
-          </div>
-          <div className="col-12 col-lg-9">
-            {data.map((val, i) => (
-              <div className="link-holder" key={i}>
-                <div className="col-12 col-lg-5 input-info ">
-                  <label htmlFor="iconVal">icon name (optional)</label>
-                  <input
-                    name="iconVal"
-                    value={val.iconVal}
-                    onChange={(e) => handleChange(e, i)}
-                  />
-                </div>
-                <div
-                  className={
-                    val.iconVal ? "col-12 col-lg-5 input-info" : "hidden"
-                  }
-                >
-                  <label htmlFor="iconType">icon type</label>
-                  <input
-                    required
-                    name="iconType"
-                    value={val.iconType}
-                    onChange={(e) => handleChange(e, i)}
-                  />
-                </div>
-                <div
-                  className={`${
-                    val.iconVal ? "col-12 col-lg-10" : "col-12 col-lg-5"
-                  } input-info`}
-                >
-                  <label htmlFor="labelVal">Label</label>
-                  <input
-                    required
-                    name="labelVal"
-                    value={val.labelVal}
-                    onChange={(e) => handleChange(e, i)}
-                  />
-                </div>
-                <div className="col-12 col-lg-10 input-info ">
-                  <label htmlFor="urlVal">url</label>
-                  <input
-                    required
-                    name="urlVal"
-                    value={val.urlVal}
-                    onChange={(e) => handleChange(e, i)}
-                  />
-                </div>
-                <TiDelete onClick={(i) => handleDelte(i)} />
-              </div>
-            ))}
-            <div className="col-12">
-              <button
-                className={data.length > 6 ? "hidden" : `add-btn`}
-                onClick={addLink}
-              >
-                <IoIosAddCircleOutline />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Container component="section" className={`more-links`}>
+      <Grid container>
+        <Grid item lg={3} className={`section-info`}>
+          <Typography variant="h6">Other Links</Typography>
+          <Typography variant="body2">Add other links </Typography>
+          <Typography
+            variant="body2"
+            component={Link}
+            to="https://icon-sets.iconify.design/"
+            target="_blank"
+            rel=""
+          >
+            get icons from here
+          </Typography>
+        </Grid>
+        <Grid item lg={9}>
+          {data.map((val, i) => (
+            <Grid
+              spacing={2}
+              container
+              justifyContent="space-between"
+              className="link-holder"
+              key={i}
+            >
+              <Grid item lg={6} className="input-info">
+                <label htmlFor="iconName">icon name (optional)</label>
+                <input
+                  required
+                  name="iconName"
+                  value={val.iconName}
+                  onChange={(e) => handleChange(e, i)}
+                />
+              </Grid>
+              <Grid item lg={6} className="input-info">
+                <label htmlFor="labelVal">Label</label>
+                <input
+                  required
+                  name="labelVal"
+                  value={val.labelVal}
+                  onChange={(e) => handleChange(e, i)}
+                />
+              </Grid>
+              <Grid item lg={12} className="input-info ">
+                <label htmlFor="urlVal">url</label>
+                <input
+                  required
+                  name="urlVal"
+                  value={val.urlVal}
+                  onChange={(e) => handleChange(e, i)}
+                />
+              </Grid>
+              <TiDelete onClick={(i) => handleDelte(i)} />
+            </Grid>
+          ))}
+          <Grid
+            container
+            justifyContent="center"
+            component="button"
+            className={data.length > 6 ? "hidden" : `add-btn`}
+            onClick={addLink}
+          >
+            <AddCircleIcon color="action" />
+          </Grid>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

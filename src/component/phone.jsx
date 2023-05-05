@@ -1,6 +1,5 @@
 import React from "react";
 import "../sass/phone.scss";
-import Avatar from "react-avatar";
 import {
   BsFacebook,
   BsInstagram,
@@ -12,139 +11,170 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
+import { Avatar, Container, Grid, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import { Icon } from "@iconify/react";
+const styles = makeStyles({
+  avatar: {
+    width: "100px",
+    height: "100px",
+  },
+  links: { marginLeft: "5px" },
+});
+
 function Phone({
   // get props
-  name,
-  about,
-  photo,
-  facebook,
-  github,
-  instagram,
-  linked,
-  twitter,
-  email,
-  telegram,
-  whatsapp,
-  youtube,
+  clientData,
   data,
 }) {
+  const classes = styles();
+
   return (
     // set all data saved from user
-    <section className="col-12 col-lg-4 rightSection">
-      <div className="container">
-        <div className="row">
-          <div className="avatar">
+    <section className="col-12 col-lg-4 rightSection cleintData">
+      <Container component="div" className="container">
+        <Grid container>
+          {/* avatar section */}
+          <Grid container className="avatar" justifyContent="center">
             <Avatar
-              round={true}
-              src={photo}
-              name={name}
-              className={photo ? "" : "hidden"}
+              src={clientData.photo}
+              name={clientData.name}
+              className={clientData.photo ? `${classes.avatar}` : "hidden"}
             />
-          </div>
-          <div className="detail">
-            <h4 className={name ? "" : "hidden"}>{name}</h4>
-            <p className={about ? "" : "hidden"}>{about}</p>
-          </div>
-          <ul className="socialLinks">
-            <li
-              className={facebook ? "link" : "link hidden"}
+          </Grid>
+          {/* profile section */}
+          <Grid item lg={12} className="detail">
+            <Typography
+              variant="h5"
+              align="center"
+              className={clientData.name ? "" : "hidden"}
+            >
+              {clientData.name}
+            </Typography>
+            <Typography
+              align="center"
+              variant="subtitle1"
+              color="textSecondary"
+              className={clientData.about ? "" : "hidden"}
+            >
+              {clientData.about}
+            </Typography>
+          </Grid>
+          {/* social link section */}
+          <Grid
+            component="ul"
+            container
+            justifyContent="center"
+            className="socialLinks"
+          >
+            <Grid
+              component="li"
+              className={clientData.facebook ? "link" : "link hidden"}
               style={{ color: "blue" }}
             >
-              <a href={facebook}>
+              <a href={clientData.facebook} target="_blank">
                 <BsFacebook />
               </a>
-            </li>
-            <li className={github ? "link" : "link hidden"}>
-              <a href={github}>
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.github ? "link" : "link hidden"}
+            >
+              <a href={clientData.github} target="_blank">
                 <BsGithub />
               </a>
-            </li>
-            <li
-              className={instagram ? "link" : "link hidden"}
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.instagram ? "link" : "link hidden"}
               style={{ color: "#d62976 " }}
             >
-              <a href={instagram}>
+              <a href={clientData.instagram} target="_blank">
                 <BsInstagram />
               </a>
-            </li>
-            <li
-              className={twitter ? "link" : "link hidden"}
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.twitter ? "link" : "link hidden"}
               style={{ color: "#03A9F4" }}
             >
-              <a href={twitter}>
+              <a href={clientData.twitter} target="_blank">
                 <BsTwitter />
               </a>
-            </li>
-            <li
-              className={telegram ? "link" : "link hidden"}
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.telegram ? "link" : "link hidden"}
               style={{ color: "blue" }}
             >
-              <a href={telegram}>
+              <a href={clientData.telegram} target="_blank">
                 <BsTelegram />
               </a>
-            </li>
-            <li
-              className={linked ? "link" : "link hidden"}
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.linked ? "link" : "link hidden"}
               style={{ color: "darkblue" }}
             >
-              <a href={linked}>
+              <a href={clientData.linked} target="_blank">
                 <BsLinkedin />
               </a>
-            </li>
-            <li
-              className={whatsapp ? "link" : "link hidden"}
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.whatsapp ? "link" : "link hidden"}
               style={{ color: "green" }}
             >
-              <a href={whatsapp}>
+              <a href={clientData.whatsapp} target="_blank">
                 <BsWhatsapp />
               </a>
-            </li>
-            <li
-              className={youtube ? "link" : "link hidden"}
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.youtube ? "link" : "link hidden"}
               style={{ color: "red" }}
             >
-              <a href={youtube}>
+              <a href={clientData.youtube} target="_blank">
                 <BsYoutube />
               </a>
-            </li>
-            <li
-              className={email ? "link" : "link hidden"}
+            </Grid>
+            <Grid
+              component="li"
+              className={clientData.email ? "link" : "link hidden"}
               style={{ color: "darkred" }}
             >
-              <a href={email}>
+              <a href={clientData.email} target="_blank">
                 <HiOutlineMail />
               </a>
-            </li>
-          </ul>
-          <ul className="moreLinks">
-            {data.map((linkVal, index) => (
-              <li
-                key={index}
-                className={
-                  (linkVal.urlVal && linkVal.labelVal) ||
-                  (linkVal.urlVal &&
-                    linkVal.labelVal &&
-                    linkVal.iconVal &&
-                    linkVal.iconType)
-                    ? ""
-                    : "hidden"
-                }
-              >
-                <a href={"https://" + linkVal.urlVal}>
-                  <i
-                    className={
-                      linkVal.iconVal
-                        ? `fa-${linkVal.iconType} fa-${linkVal.iconVal}`
-                        : `fa-solid fa-link`
-                    }
-                  ></i>
-                  <p>{linkVal.labelVal}</p>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+            </Grid>
+          </Grid>
+          {/* more links section */}
+          <Grid item lg={12} component="ul" className="moreLinks">
+            {data.map((linkVal, index) =>
+              linkVal.labelVal && linkVal.urlVal ? (
+                <Typography component="li" key={index}>
+                  <Grid
+                    item
+                    component="a"
+                    href={linkVal.urlVal}
+                    target="_blank"
+                  >
+                    <Icon
+                      icon={linkVal.iconName}
+                      width="22"
+                      height="22"
+                      color="gray"
+                    />
+                    <Typography variant="body1">{linkVal.labelVal}</Typography>
+                  </Grid>
+                </Typography>
+              ) : (
+                ""
+              )
+            )}
+          </Grid>
+        </Grid>
+      </Container>
     </section>
   );
 }

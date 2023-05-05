@@ -1,6 +1,4 @@
-import React from "react";
-import Avatar from "react-avatar";
-import "../sass/phone.scss";
+import React, { useEffect, useState } from "react";
 import {
   BsFacebook,
   BsInstagram,
@@ -12,140 +10,183 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
-const WebShare = () => {
-  // profile stored data
-  const name = localStorage.getItem("name");
-  const about = localStorage.getItem("about");
-  const photo = localStorage.getItem("photo");
-  // links stored data
-  const email = localStorage.getItem("email");
-  const linked = localStorage.getItem("linked");
-  const youtube = localStorage.getItem("youtube");
-  const whatsapp = localStorage.getItem("whatsapp");
-  const telegram = localStorage.getItem("telegram");
-  const twitter = localStorage.getItem("twitter");
-  const instagram = localStorage.getItem("instagram");
-  const github = localStorage.getItem("github");
-  const facebook = localStorage.getItem("facebook");
-  const newData = JSON.parse(localStorage.getItem("dataOtherLinks"));
+import "../sass/webshare.scss";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import {
+  Avatar,
+  Container,
+  Grid,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
+import { Icon } from "@iconify/react";
 
+const style = makeStyles({
+  container: { height: "70vh" },
+  avatar: {
+    width: "120px",
+    height: "120px",
+    marginBottom: "10px",
+  },
+  name: {
+    textTransform: "capitalize",
+    fontWeight: "bold",
+  },
+  socail: {
+    marginTop: "20px",
+  },
+  icon: {
+    marginRight: "10px",
+  },
+});
+const WebShare = () => {
+  const classes = style();
+  const { id } = useParams();
+  const [profileData, setProfileData] = useState([]);
+  const [otherLinks, setOtherLinks] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:8000/PersonalData/${id}`).then((res) => {
+      setOtherLinks(res.data.dataVal);
+      setProfileData(res.data.clientData);
+    });
+  }, []);
+
+  console.log(otherLinks);
   return (
-    <div className="webShare rightSection">
-      <div className="container">
-        <div className="row">
-          <div className="avatar">
-            <Avatar
-              src={photo}
-              round={true}
-              name={name}
-              className={photo ? "" : "hidden"}
-            />
-          </div>
-          <div className="details">
-            <h5>{name}</h5>
-            <p>{about}</p>
-          </div>
-          <ul className="socialLinks">
-            <li
-              className={facebook ? "link" : "link hidden"}
-              style={{ color: "blue" }}
-            >
-              <a href={facebook}>
-                <BsFacebook />
-              </a>
-            </li>
-            <li className={github ? "link" : "link hidden"}>
-              <a href={github}>
-                <BsGithub />
-              </a>
-            </li>
-            <li
-              className={instagram ? "link" : "link hidden"}
-              style={{ color: "#d62976 " }}
-            >
-              <a href={instagram}>
-                <BsInstagram />
-              </a>
-            </li>
-            <li
-              className={twitter ? "link" : "link hidden"}
-              style={{ color: "blue" }}
-            >
-              <a href={twitter}>
-                <BsTwitter />
-              </a>
-            </li>
-            <li
-              className={telegram ? "link" : "link hidden"}
-              style={{ color: "blue" }}
-            >
-              <a href={telegram}>
-                <BsTelegram />
-              </a>
-            </li>
-            <li
-              className={linked ? "link" : "link hidden"}
-              style={{ color: "darkblue" }}
-            >
-              <a href={linked}>
-                <BsLinkedin />
-              </a>
-            </li>
-            <li
-              className={whatsapp ? "link" : "link hidden"}
-              style={{ color: "green" }}
-            >
-              <a href={whatsapp}>
-                <BsWhatsapp />
-              </a>
-            </li>
-            <li
-              className={youtube ? "link" : "link hidden"}
-              style={{ color: "darkred" }}
-            >
-              <a href={youtube}>
-                <BsYoutube />
-              </a>
-            </li>
-            <li
-              className={email ? "link" : "link hidden"}
-              style={{ color: "red" }}
-            >
-              <a href={email}>
-                <HiOutlineMail />
-              </a>
-            </li>
-          </ul>
-          {/* <ul className="moreLinks">
-            {newData.map((linkVal, index) => (
-              <li
-                key={index}
-                className={
-                  (linkVal.urlVal && linkVal.labelVal) ||
-                  (linkVal.urlVal &&
-                    linkVal.labelVal &&
-                    linkVal.iconVal &&
-                    linkVal.iconType)
-                    ? ""
-                    : "hidden"
-                }
-              >
-                <a href={"https://" + linkVal.urlVal}>
-                  <i
-                    className={
-                      linkVal.iconVal
-                        ? `fa-${linkVal.iconType} fa-${linkVal.iconVal}`
-                        : `fa-solid fa-link`
-                    }
-                  ></i>
-                  <p>{linkVal.labelVal}</p>
-                </a>
-              </li>
-            ))}
-          </ul> */}
-        </div>
-      </div>
-    </div>
+    <Container>
+      <Grid
+        className={classes.container}
+        container
+        direction="column"
+        component="div"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Avatar src={profileData.photo} className={classes.avatar} />
+        <Typography variant="h5" className={classes.name}>
+          {profileData.name}
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          color="textSecondary"
+          className={classes.name}
+        >
+          {profileData.about}
+        </Typography>
+        <Grid
+          component="ul"
+          container
+          justifyContent="center"
+          className={`socialLinksShare ${classes.socail}`}
+        >
+          <Grid
+            component="li"
+            className={profileData.facebook ? "link" : "link hidden"}
+            style={{ color: "blue" }}
+          >
+            <a href={profileData.facebook} target="_blank">
+              <BsFacebook />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.github ? "link" : "link hidden"}
+          >
+            <a href={profileData.github} target="_blank">
+              <BsGithub />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.instagram ? "link" : "link hidden"}
+            style={{ color: "#d62976 " }}
+          >
+            <a href={profileData.instagram} target="_blank">
+              <BsInstagram />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.twitter ? "link" : "link hidden"}
+            style={{ color: "#03A9F4" }}
+          >
+            <a href={profileData.twitter} target="_blank">
+              <BsTwitter />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.telegram ? "link" : "link hidden"}
+            style={{ color: "blue" }}
+          >
+            <a href={profileData.telegram} target="_blank">
+              <BsTelegram />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.linked ? "link" : "link hidden"}
+            style={{ color: "darkblue" }}
+          >
+            <a href={profileData.linked} target="_blank">
+              <BsLinkedin />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.whatsapp ? "link" : "link hidden"}
+            style={{ color: "green" }}
+          >
+            <a href={profileData.whatsapp} target="_blank">
+              <BsWhatsapp />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.youtube ? "link" : "link hidden"}
+            style={{ color: "red" }}
+          >
+            <a href={profileData.youtube} target="_blank">
+              <BsYoutube />
+            </a>
+          </Grid>
+          <Grid
+            component="li"
+            className={profileData.email ? "link" : "link hidden"}
+            style={{ color: "darkred" }}
+          >
+            <a href={profileData.email} target="_blank">
+              <HiOutlineMail />
+            </a>
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          alignContent="center"
+          direction="column"
+          component="div"
+          className="moreLinksShare"
+        >
+          {otherLinks.map((data, i) =>
+            data.labelVal && data.urlVal ? (
+              <Link to={data.urlVal} target="_blank">
+                <Icon
+                  icon={data.iconName}
+                  width="24"
+                  height="24"
+                  color="gray"
+                  className={classes.icon}
+                />
+                <Typography variant="body1">{data.labelVal}</Typography>
+              </Link>
+            ) : (
+              ""
+            )
+          )}
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
