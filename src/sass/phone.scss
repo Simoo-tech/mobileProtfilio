@@ -1,15 +1,14 @@
+// style phone section
 .rightSection {
-  position: relative;
-  height: 100vh;
   .hidden {
     display: none !important;
   }
   .container {
     width: 350px;
-    height: 80%;
+    height: 90%;
     border: solid black 8px;
     position: absolute;
-    top: 30%;
+    top: 28%;
     left: 50%;
     transform: translate(-50%, -30%);
     -webkit-transform: translate(-50%, -30%);
@@ -21,12 +20,9 @@
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
-    .avatar {
-      margin-top: 50px;
-      margin-bottom: 10px;
-    }
-
+    // social links
     .socialLinks {
+      margin-top: 20px;
       gap: 7px;
       .link {
         font-size: 25px;
@@ -35,8 +31,9 @@
         }
       }
     }
+    // other links
     .moreLinks {
-      margin-top: 20px;
+      margin-top: 10px;
       li {
         margin-bottom: 10px;
         background-color: #f1f5f9;
@@ -58,38 +55,6 @@
           }
           p {
             text-transform: capitalize;
-          }
-        }
-      }
-    }
-  }
-  &.webShare {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .container {
-      border: none;
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: translate(0%, 0%);
-      -webkit-transform: translate(0%, 0%);
-      -moz-transform: translate(0%, 0%);
-      -ms-transform: translate(0%, 0%);
-      -o-transform: translate(0%, 0%);
-      .row {
-        justify-content: center;
-        .avatar {
-          margin: 0;
-        }
-        .details {
-          justify-content: center;
-          h5 {
-            text-align: center;
-            margin-top: 10px;
-          }
-          p {
-            text-align: center;
           }
         }
       }

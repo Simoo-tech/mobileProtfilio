@@ -1,37 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 import ShareIcon from "@material-ui/icons/Share";
 import StorageIcon from "@material-ui/icons/Storage";
 import EditIcon from "@material-ui/icons/Edit";
-import { Box, Button, Grid, Typography, makeStyles } from "@material-ui/core";
+import { Button, Grid, makeStyles } from "@material-ui/core";
+import "../sass/Home.scss";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 
+// style
 const style = makeStyles({
-  popUp: {
-    zIndex: "10",
-    display: "none",
-    position: "absolute",
-    left: "50%",
-    top: "50%",
-    backgroundColor: "gray",
-    color: "white",
-    padding: "10px 20px",
-    borderRadius: "5px",
-    "&.active": {
-      display: "block",
-    },
+  Text: {
+    textAlign: "end",
+  },
+  container: {
+    padding: "0px 10px",
   },
 });
 
-function Header({ clientData, setClientData, dataVal, setData, id, setId }) {
-  // get data id
-
-  // style PopUp classe active
-  const [copyShowPop, setCopyShowPop] = useState("");
-  const [updateShowPop, setUpdateShowPop] = useState("");
+function Header({
+  clientData,
+  setClientData,
+  setOtherLinks,
+  otherLinks,
+  Newid,
+  setNewId,
+  setCopyShowPop,
+  setUpdateShowPop,
+}) {
   const classes = style();
 
-  // add data and fetching
+  // make get new id by uuid
+  const id = uuid();
+
+  // add data and fetching function
   const fetchingData = async () => {
     setCopyShowPop("active");
     setTimeout(() => {
@@ -40,10 +41,11 @@ function Header({ clientData, setClientData, dataVal, setData, id, setId }) {
     await axios
       .post("http://localhost:8000/PersonalData", {
         clientData,
-        dataVal,
+        otherLinks,
+        id,
       })
       .then((res) => {
-        setId(res.data.id);
+        setNewId(res.data.id);
         navigator.clipboard.writeText(
           `http://localhost:3000/mobileProtfilio/share/${res.data.id}`
         );
@@ -56,15 +58,15 @@ function Header({ clientData, setClientData, dataVal, setData, id, setId }) {
     setTimeout(() => {
       setUpdateShowPop("");
     }, 1500);
-    await axios.put(`http://localhost:8000/PersonalData/${id}`, {
+    await axios.put(`http://localhost:8000/PersonalData/${Newid}`, {
       clientData,
-      dataVal,
+      otherLinks,
     });
     navigator.clipboard.writeText(
-      `http://localhost:3000/mobileProtfilio/share/${id}`
+      `http://localhost:3000/mobileProtfilio/share/${Newid}`
     );
   };
-  // 2- Add demo data btn
+  // Add demo data function
   const AddData = (e) => {
     e.preventDefault();
     setClientData({
@@ -83,7 +85,7 @@ function Header({ clientData, setClientData, dataVal, setData, id, setId }) {
       email: "elonmusk@gmail.com",
     });
     JSON.stringify(
-      setData([
+      setOtherLinks([
         {
           labelVal: "google",
           urlVal: "www.google.com",
@@ -102,41 +104,41 @@ function Header({ clientData, setClientData, dataVal, setData, id, setId }) {
       ])
     );
   };
+
   return (
-    <Box component="header">
-      <Grid container justifyContent="space-between">
-        <Grid item lg={9}>
+    <Grid
+      component="header"
+      container
+      justifyContent="space-between"
+      className={classes.container}
+    >
+      <Grid item lg={9} md={6} xs={12} sm={8}>
+        <Grid container>
           <Button endIcon={<StorageIcon />} onClick={AddData}>
             demo data
           </Button>
-          <Typography
-            variant="h6"
-            className={`${classes.popUp} ${copyShowPop}`}
-          >
-            Link Copied
-          </Typography>
-          <Button endIcon={<ShareIcon />} onClick={fetchingData}>
-            Share New Protfilio
-          </Button>
-          {id == null || id == "null" ? (
+          {Newid === "" || Newid === "" ? (
+            <Button endIcon={<ShareIcon />} onClick={fetchingData}>
+              Share Protfilio
+            </Button>
+          ) : (
+            ""
+          )}
+          {Newid === "" || Newid === "" ? (
             ""
           ) : (
             <Button endIcon={<EditIcon />} onClick={EditData}>
               Edit Data
             </Button>
           )}
-          <Typography
-            variant="h6"
-            className={`${classes.popUp} ${updateShowPop}`}
-          >
-            Data Updated
-          </Typography>
         </Grid>
-        <Grid component="p" lg={3} item className="copyright">
+      </Grid>
+      <Grid lg={3} md={6} xs={12} sm={4} item className={classes.Text}>
+        <Grid component="p" container alignItems="center">
           Made By Salah eldin Mahmoud
         </Grid>
       </Grid>
-    </Box>
+    </Grid>
   );
 }
 

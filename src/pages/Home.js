@@ -4,10 +4,37 @@ import "../App.scss";
 import Left from "../component/left";
 import Phone from "../component/phone";
 import Header from "../component/Header";
-// 1- Set Values
+import { Grid, Typography, makeStyles } from "@material-ui/core";
+
+// style
+const style = makeStyles({
+  popUp: {
+    zIndex: "10",
+    display: "none",
+    position: "fixed",
+    left: "50%",
+    transform: "translateX(-50%)",
+    top: "50%",
+    backgroundColor: "gray",
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    "&.active": {
+      display: "block",
+    },
+  },
+  Text: {
+    textAlign: "end",
+  },
+  container: {
+    padding: "0px 10px",
+  },
+});
+
+// 1- Set Values data and id
 const Home = () => {
-  const [id, setId] = useState(0);
-  const [data, setData] = useState([]);
+  const [Newid, setNewId] = useState(0);
+  const [otherLinks, setOtherLinks] = useState([""]);
   const [clientData, setClientData] = useState({
     name: "",
     about: "",
@@ -22,43 +49,74 @@ const Home = () => {
     linked: "",
     email: "",
   });
-  console.log(clientData);
-  // make array of adding other link
 
+  // in render save data to localStorage
   useEffect(() => {
-    localStorage.setItem("id", id);
-    localStorage.setItem("clientData", JSON.stringify(clientData));
-    localStorage.setItem(
-      "data",
-      JSON.stringify(data) ? JSON.stringify(data) : ""
+    window.localStorage.setItem("CLIENT_PROTFILIO_ID", Newid ? Newid : "");
+    window.localStorage.setItem(
+      "STORE_CLIENT_DATA",
+      clientData ? JSON.stringify(clientData) : ""
     );
-  }, [clientData, data, id]);
+    window.localStorage.setItem(
+      "CLIENT_OTHERLINKS_DATA",
+      otherLinks ? JSON.stringify(otherLinks) : ""
+    );
+  }, [clientData, otherLinks, Newid]);
+
+  // style and make Popup
+  const classes = style();
+  const [copyShowPop, setCopyShowPop] = useState("");
+  const [updateShowPop, setUpdateShowPop] = useState("");
+
   return (
-    <div className="Home">
-      {/* pass props to footer for edit button to edit all data after submit it */}
+    <Grid container className="Home">
+      {/* PopUp for copying link and data update  */}
+      <Typography variant="h6" className={`${classes.popUp} ${updateShowPop}`}>
+        Data Updated
+      </Typography>
+      <Typography variant="h6" className={`${classes.popUp} ${copyShowPop}`}>
+        Link Copied
+      </Typography>
+
+      {/* pass props to Header for edit button to edit all data after submit it */}
       <Header
         clientData={clientData}
         setClientData={setClientData}
-        setData={setData}
-        dataVal={data}
-        id={id}
-        setId={setId}
+        setOtherLinks={setOtherLinks}
+        otherLinks={otherLinks}
+        Newid={Newid}
+        setNewId={setNewId}
+        setCopyShowPop={setCopyShowPop}
+        setUpdateShowPop={setUpdateShowPop}
       />
+
       {/* pass data to left sections */}
-      <Left
-        clientData={clientData}
-        setClientData={setClientData}
-        setData={setData}
-        data={data}
-        setId={setId}
-      />
+      <Grid
+        component="section"
+        item
+        xs={12}
+        md={7}
+        lg={8}
+        className="leftSection"
+      >
+        <Left
+          clientData={clientData}
+          setClientData={setClientData}
+          setOtherLinks={setOtherLinks}
+          otherLinks={otherLinks}
+          setNewId={setNewId}
+        />
+      </Grid>
+
       {/* pass data to phone section  */}
-      <Phone
-        clientData={clientData}
-        setClientData={setClientData}
-        data={data}
-      />
-    </div>
+      <Grid component="section" item md={5} lg={4} className=" rightSection">
+        <Phone
+          clientData={clientData}
+          setClientData={setClientData}
+          otherLinks={otherLinks}
+        />
+      </Grid>
+    </Grid>
   );
 };
 

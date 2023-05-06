@@ -1,6 +1,9 @@
+@use "./_responsive" as *;
+// style all section
 section {
   border-bottom: 2px solid white;
   padding: 20px 0px;
+  width: 100%;
   .hidden {
     display: none;
   }
@@ -123,5 +126,16 @@ section {
         display: flex;
       }
     }
+  }
+  /****** responsive *********/
+  @include breakpoint(smallphone) {
+    flex-direction: column;
+    gap: 20px;
+  }
+  @include breakpoint(mediumSc) {
+  }
+  @include breakpoint(largeSc) {
+  }
+  @include breakpoint(XlargeSc) {
   }
 }

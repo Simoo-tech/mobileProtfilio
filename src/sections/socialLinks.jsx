@@ -13,25 +13,27 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { Container, Grid, Typography } from "@material-ui/core";
 
-function SocialLinks({
-  // get props for input function & onchange
-  clientData,
-  setClientData,
-}) {
+function SocialLinks({ clientData, setClientData }) {
+  // on change function
   const handleChange = (e) => {
     setClientData({ ...clientData, [e.target.name]: e.target.value });
   };
-  // set new value icon
+
   return (
-    <Container component="section" className="social-links section">
-      <Grid container justifyContent="space-between">
-        <Grid item lg={2} className="section-info">
+    <Container>
+      <Grid
+        container
+        component="section"
+        justifyContent="space-between"
+        className="social-links section"
+      >
+        <Grid item sm={2} className="section-info">
           <Typography variant="h6">Social Links</Typography>
           <Typography variant="body2">Add some social media links</Typography>
         </Grid>
-        <Grid item lg={9} className="section-inputs">
+        <Grid item sm={9} className="section-inputs">
           <Grid container spacing={3}>
-            <Grid item lg={6} className="facebook">
+            <Grid item xs={6} className="facebook">
               <label htmlFor="facebook">Facebook</label>
               <div className="link-icon">
                 <BsFacebook />
@@ -44,7 +46,7 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="github">
+            <Grid item xs={6} className="github">
               <label htmlFor="github">Github</label>
               <div className="link-icon">
                 <BsGithub />
@@ -57,7 +59,7 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="twitter">
+            <Grid item xs={6} className="twitter">
               <label htmlFor="twitter">Twitter</label>
               <div className="link-icon">
                 <BsTwitter />
@@ -70,7 +72,7 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="instagram">
+            <Grid item xs={6} className="instagram">
               <label htmlFor="instagram">Instagram</label>
               <div className="link-icon">
                 <BsInstagram />
@@ -83,7 +85,7 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="telegram">
+            <Grid item xs={6} className="telegram">
               <label htmlFor="telegram">Telegram</label>
               <div className="link-icon">
                 <BsTelegram />
@@ -96,12 +98,12 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="whatsapp">
+            <Grid item xs={6} className="whatsapp">
               <label htmlFor="whatsapp">Whatsapp</label>
               <div className="link-icon">
                 <BsWhatsapp />
                 <input
-                  type="tel"
+                  type="url"
                   name="whatsapp"
                   value={clientData.whatsapp}
                   onChange={handleChange}
@@ -109,7 +111,7 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="youtube">
+            <Grid item xs={6} className="youtube">
               <label htmlFor="youtube">Youtube </label>
               <div className="link-icon">
                 <BsYoutube />
@@ -122,7 +124,7 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="linkedin">
+            <Grid item xs={6} className="linkedin">
               <label htmlFor="linkedin">Linkedin</label>
               <div className="link-icon">
                 <BsLinkedin />
@@ -135,7 +137,7 @@ function SocialLinks({
                 />
               </div>
             </Grid>
-            <Grid item lg={6} className="email">
+            <Grid item xs={6} className="email">
               <label htmlFor="email">Email</label>
               <div className="link-icon flex-row d-flex">
                 <HiOutlineMail />

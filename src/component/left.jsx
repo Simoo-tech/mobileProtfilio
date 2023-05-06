@@ -4,29 +4,35 @@ import SocialLinks from "../sections/socialLinks";
 import MoreLinks from "../sections/MoreLinks";
 function Left({
   // get Props
-  data,
-  setData,
+  otherLinks,
+  setOtherLinks,
   clientData,
   setClientData,
-  setId,
+  setNewId,
 }) {
+  // local storage get data and update value
+  const storedId = window.localStorage.getItem("CLIENT_PROTFILIO_ID");
+  const storedClientData = window.localStorage.getItem("STORE_CLIENT_DATA");
+  const storedOtherLinkData = window.localStorage.getItem(
+    "CLIENT_OTHERLINKS_DATA"
+  );
   useEffect(() => {
-    setClientData(JSON.parse(localStorage.getItem("clientData")));
-    setData(JSON.parse(localStorage.getItem("data")));
-    setId(localStorage.getItem("id"));
+    setClientData(
+      JSON.parse(storedClientData) ? JSON.parse(storedClientData) : ""
+    );
+    setOtherLinks(
+      JSON.parse(storedOtherLinkData) ? JSON.parse(storedOtherLinkData) : ""
+    );
+    setNewId(storedId ? storedId : "");
   }, []);
-
   return (
     <>
-      <section className="col-12 col-lg-8 leftSection">
-        <div className="sections">
-          {/* pass props to profile section to reset data input and store  */}
-          <Profile clientData={clientData} setClientData={setClientData} />
-          {/* pass props to links section to reset data input and store */}
-          <SocialLinks clientData={clientData} setClientData={setClientData} />
-          <MoreLinks data={data} setData={setData} />
-        </div>
-      </section>
+      {/* pass data to profile section */}
+      <Profile clientData={clientData} setClientData={setClientData} />
+      {/* pass data to links section */}
+      <SocialLinks clientData={clientData} setClientData={setClientData} />
+      {/* pass data to other link section */}
+      <MoreLinks otherLinks={otherLinks} setOtherLinks={setOtherLinks} />
     </>
   );
 }

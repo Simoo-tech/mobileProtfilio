@@ -1,0 +1,165 @@
+@use "../sass/_responsive" as *;
+// style home page
+.Home {
+  position: relative;
+  // header style
+  header {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    border-bottom: #f1f5f9 solid 2px;
+  }
+  // left section style (inputs)
+  .leftSection {
+    float: left;
+    background-color: #f1f5f9;
+    padding: 0;
+    margin: 0px;
+    overflow-y: scroll;
+    height: 100vh;
+    padding: 20px 0px;
+  }
+  // right scetion value (phone)
+  .rightSection {
+    height: 100vh;
+    position: relative;
+    float: right;
+    padding: 0;
+    margin: 0px;
+  }
+  /*************Responsive***************/
+  @include breakpoint(smallphone) {
+    flex-direction: column-reverse;
+
+    header {
+      justify-content: center;
+      div {
+        justify-content: center;
+        button {
+          span {
+            font-size: 17px;
+            span {
+              margin: 0;
+              margin-left: 5px;
+              svg {
+                font-size: 17px !important;
+              }
+            }
+          }
+        }
+      }
+      div {
+        p {
+          padding: 3px 0px;
+          margin-top: 3px;
+          height: 100%;
+          font-size: 13px;
+          text-align: center;
+          justify-content: center;
+        }
+      }
+    }
+    .rightSection {
+      height: 95vh;
+      margin-top: 3vh;
+      .container {
+        top: 35%;
+      }
+    }
+  }
+  @include breakpoint(mediumSc) {
+    flex-direction: column-reverse;
+    .rightSection {
+      height: 95vh;
+      .container {
+        top: 35%;
+      }
+    }
+    header {
+      justify-content: center;
+      div {
+        justify-content: start;
+        button {
+          span {
+            font-size: 14px;
+            span {
+              svg {
+                font-size: 15px !important;
+              }
+            }
+          }
+        }
+      }
+      p {
+        height: 100%;
+        font-size: 14px;
+        justify-content: end;
+      }
+    }
+  }
+  @include breakpoint(largeSc) {
+    flex-direction: row;
+    header {
+      justify-content: center;
+      div {
+        justify-content: start;
+        button {
+          span {
+            font-size: 15px;
+            align-items: center;
+            span {
+              svg {
+                font-size: 18px !important;
+              }
+            }
+          }
+        }
+      }
+      p {
+        height: 100%;
+        font-size: 18px;
+        justify-content: end;
+      }
+    }
+    .rightSection {
+      height: 95vh;
+      margin-top: 3vh;
+      .container {
+        top: 35%;
+      }
+    }
+  }
+  @include breakpoint(XlargeSc) {
+    flex-direction: row;
+    header {
+      justify-content: center;
+      div {
+        justify-content: start;
+        button {
+          span {
+            font-size: 15px;
+            align-items: center;
+            span {
+              svg {
+                font-size: 18px !important;
+              }
+            }
+          }
+        }
+      }
+      p {
+        height: 100%;
+        font-size: 18px;
+        justify-content: end;
+      }
+    }
+    .rightSection {
+      height: 95vh;
+      margin-top: 3vh;
+      .container {
+        top: 35%;
+      }
+    }
+  }
+}

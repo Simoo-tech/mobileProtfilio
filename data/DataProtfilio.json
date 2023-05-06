@@ -2,56 +2,24 @@
   "PersonalData": [
     {
       "clientData": {
-        "name": "salah eldins",
-        "about": "i'm react Front-end",
-        "photo": "https://lh3.googleusercontent.com/jTbM42sErviG0BmhffAqXSHSs_qVfT3Nb3UF2PY33Y8eoNHfBNmmRHT6gypC0P-QQnN7KSlf4W336cBhLlXxpJi9QqOgor4L0Wqs9U8",
+        "name": "salah elidn mahmoud",
+        "about": "front end developer Reactjs",
+        "photo": "https://lh3.googleusercontent.com/fPw9jV8-6ALtFbprzS2nthm8-dIVUnE8R16LS6y3PHMXjldCh-LNNE1PsFZtQj51VmxlQQIZ0ImkH5_b-5nIlGr1JeDCtbera0Edrfrd",
         "facebook": "https://www.facebook.com/salaheddin.hamed",
-        "github": "",
-        "instagram": "https://www.instagram.com/salah_33_/?next=%2F",
-        "twitter": "",
-        "telegram": "",
-        "whatsapp": "",
-        "youtube": "",
-        "linked": "",
-        "email": ""
+        "github": "https://github.com/Simoo-tech?tab=repositories",
+        "instagram": "https://www.instagram.com/salah_33_/",
+        "whatsapp": "+201116648153",
+        "linked": "https://www.linkedin.com/in/salah-eldin-hamed-840bb9225/",
+        "email": "school12p@gmail.com"
       },
-      "dataVal": [
+      "otherLinks": [
         {
           "labelVal": "my website",
           "urlVal": "https://simoo-tech.github.io/myproto/",
           "iconName": "mingcute:earth-line"
         }
       ],
-      "id": 2
-    },
-    {
-      "clientData": {
-        "name": "salah eldin",
-        "about": "i'm react Front-end",
-        "photo": "https://lh3.googleusercontent.com/jTbM42sErviG0BmhffAqXSHSs_qVfT3Nb3UF2PY33Y8eoNHfBNmmRHT6gypC0P-QQnN7KSlf4W336cBhLlXxpJi9QqOgor4L0Wqs9U8",
-        "facebook": "https://www.facebook.com/salaheddin.hamed",
-        "github": "",
-        "instagram": "https://www.instagram.com/salah_33_/?next=%2F",
-        "twitter": "dw",
-        "telegram": "d",
-        "whatsapp": "d",
-        "youtube": "w",
-        "linked": "a",
-        "email": "wd"
-      },
-      "dataVal": [
-        {
-          "labelVal": "d",
-          "urlVal": "awdd",
-          "iconName": "mingcute:earth-line"
-        },
-        {
-          "labelVal": "sda",
-          "urlVal": "dadwd",
-          "iconName": "mingcute:earth-line"
-        }
-      ],
-      "id": 3
+      "id": "6e3051a6-d01f-4d01-83d5-77166dad0d1c"
     }
   ]
 }
