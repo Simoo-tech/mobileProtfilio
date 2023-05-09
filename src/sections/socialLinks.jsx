@@ -24,16 +24,16 @@ function SocialLinks({ clientData, setClientData }) {
       <Grid
         container
         component="section"
+        className="social-links"
         justifyContent="space-between"
-        className="social-links section"
       >
         <Grid item sm={2} className="section-info">
-          <Typography variant="h6">Social Links</Typography>
+          <Typography variant="h5">Social Links</Typography>
           <Typography variant="body2">Add some social media links</Typography>
         </Grid>
         <Grid item sm={9} className="section-inputs">
-          <Grid container spacing={3}>
-            <Grid item xs={6} className="facebook">
+          <Grid container>
+            <Grid item xs={5} className="facebook">
               <label htmlFor="facebook">Facebook</label>
               <div className="link-icon">
                 <BsFacebook />
@@ -46,7 +46,7 @@ function SocialLinks({ clientData, setClientData }) {
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="github">
+            <Grid item xs={5} className="github">
               <label htmlFor="github">Github</label>
               <div className="link-icon">
                 <BsGithub />
@@ -59,7 +59,7 @@ function SocialLinks({ clientData, setClientData }) {
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="twitter">
+            <Grid item xs={5} className="twitter">
               <label htmlFor="twitter">Twitter</label>
               <div className="link-icon">
                 <BsTwitter />
@@ -72,7 +72,7 @@ function SocialLinks({ clientData, setClientData }) {
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="instagram">
+            <Grid item xs={5} className="instagram">
               <label htmlFor="instagram">Instagram</label>
               <div className="link-icon">
                 <BsInstagram />
@@ -85,7 +85,7 @@ function SocialLinks({ clientData, setClientData }) {
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="telegram">
+            <Grid item xs={5} className="telegram">
               <label htmlFor="telegram">Telegram</label>
               <div className="link-icon">
                 <BsTelegram />
@@ -98,7 +98,7 @@ function SocialLinks({ clientData, setClientData }) {
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="whatsapp">
+            <Grid item xs={5} className="whatsapp">
               <label htmlFor="whatsapp">Whatsapp</label>
               <div className="link-icon">
                 <BsWhatsapp />
@@ -107,11 +107,11 @@ function SocialLinks({ clientData, setClientData }) {
                   name="whatsapp"
                   value={clientData.whatsapp}
                   onChange={handleChange}
-                  placeholder="+20121664812"
+                  placeholder="+20121554812"
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="youtube">
+            <Grid item xs={5} className="youtube">
               <label htmlFor="youtube">Youtube </label>
               <div className="link-icon">
                 <BsYoutube />
@@ -124,7 +124,7 @@ function SocialLinks({ clientData, setClientData }) {
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="linkedin">
+            <Grid item xs={5} className="linkedin">
               <label htmlFor="linkedin">Linkedin</label>
               <div className="link-icon">
                 <BsLinkedin />
@@ -137,7 +137,7 @@ function SocialLinks({ clientData, setClientData }) {
                 />
               </div>
             </Grid>
-            <Grid item xs={6} className="email">
+            <Grid item xs={5} className="email">
               <label htmlFor="email">Email</label>
               <div className="link-icon flex-row d-flex">
                 <HiOutlineMail />

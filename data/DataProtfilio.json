@@ -2,24 +2,71 @@
   "PersonalData": [
     {
       "clientData": {
-        "name": "salah elidn mahmoud",
-        "about": "front end developer Reactjs",
-        "photo": "https://lh3.googleusercontent.com/fPw9jV8-6ALtFbprzS2nthm8-dIVUnE8R16LS6y3PHMXjldCh-LNNE1PsFZtQj51VmxlQQIZ0ImkH5_b-5nIlGr1JeDCtbera0Edrfrd",
-        "facebook": "https://www.facebook.com/salaheddin.hamed",
-        "github": "https://github.com/Simoo-tech?tab=repositories",
-        "instagram": "https://www.instagram.com/salah_33_/",
-        "whatsapp": "+201116648153",
-        "linked": "https://www.linkedin.com/in/salah-eldin-hamed-840bb9225/",
-        "email": "school12p@gmail.com"
+        "name": "Amer Krara",
+        "about": "Ba4a Masr",
+        "photo": "https://mir-s3-cdn-cf.behance.net/projects/404/86a3d095057965.Y3JvcCwzMzA3LDI1ODYsMTQ0OCwyMzAw.png",
+        "facebook": "https://fb.com/elonmusk",
+        "github": "https://github.com/elonmusk",
+        "twitter": "https://twitter.com/elonmusk",
+        "telegram": "https://t.me/elonmusk",
+        "instagram": "https://instagram.com/elonmusk",
+        "linked": "https://linkedin.com/elonmusk",
+        "youtube": "https://youtube.com/elonmusk",
+        "whatsapp": "+20121664812",
+        "email": "elonmusk@gmail.com"
       },
       "otherLinks": [
         {
-          "labelVal": "my website",
-          "urlVal": "https://simoo-tech.github.io/myproto/",
-          "iconName": "mingcute:earth-line"
+          "labelVal": "google",
+          "urlVal": "www.google.com",
+          "iconName": "mdi:google-chrome"
+        },
+        {
+          "labelVal": "facebook",
+          "urlVal": "www.facebook.com",
+          "iconName": "ic:baseline-facebook"
+        },
+        {
+          "labelVal": "instagram",
+          "urlVal": "www.instagram.com",
+          "iconName": "uil:instagram-alt"
         }
       ],
-      "id": "6e3051a6-d01f-4d01-83d5-77166dad0d1c"
+      "id": "3166f213-a9ab-4771-9cf3-0f9daaeb800a"
+    },
+    {
+      "clientData": {
+        "name": "Amer Krara",
+        "about": "Ba4a Masr",
+        "photo": "https://mir-s3-cdn-cf.behance.net/projects/404/86a3d095057965.Y3JvcCwzMzA3LDI1ODYsMTQ0OCwyMzAw.png",
+        "facebook": "https://fb.com/elonmusk",
+        "github": "https://github.com/elonmusk",
+        "twitter": "https://twitter.com/elonmusk",
+        "telegram": "https://t.me/elonmusk",
+        "instagram": "https://instagram.com/elonmusk",
+        "linked": "https://linkedin.com/elonmusk",
+        "youtube": "https://youtube.com/elonmusk",
+        "whatsapp": "+20121664812",
+        "email": "elonmusk@gmail.com"
+      },
+      "otherLinks": [
+        {
+          "labelVal": "google",
+          "urlVal": "www.google.com",
+          "iconName": "mdi:google-chrome"
+        },
+        {
+          "labelVal": "facebook",
+          "urlVal": "www.facebook.com",
+          "iconName": "ic:baseline-facebook"
+        },
+        {
+          "labelVal": "instagram",
+          "urlVal": "www.instagram.com",
+          "iconName": "uil:instagram-alt"
+        }
+      ],
+      "id": "f2b71da4-fc4d-49e1-949a-4a7a4bc2121a"
     }
   ]
 }

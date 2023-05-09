@@ -4,12 +4,7 @@ import { Container, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 
 // style
-const Style = makeStyles({
-  container: {
-    marginTop: "20px",
-    marginBottom: "20px",
-  },
-});
+const Style = makeStyles({});
 
 export default function Profile({ clientData, setClientData }) {
   // add style
@@ -28,7 +23,7 @@ export default function Profile({ clientData, setClientData }) {
         className={classes.container}
       >
         <Grid item lg={3} sm={2} className="section-info">
-          <Typography variant="h6">Profile</Typography>
+          <Typography variant="h5">Profile</Typography>
           <Typography variant="body2">
             some public information <br /> about you
           </Typography>

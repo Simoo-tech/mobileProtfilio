@@ -1,7 +1,5 @@
-* {
-  box-sizing: border-box;
-}
-
+@use "./sass/_ColorVar" as *;
+@import-normalize;
 h1,
 h2,
 h3,
@@ -15,8 +13,149 @@ li {
   margin: 0;
   padding: 0;
 }
+
 body {
-  font-family: Roboto;
+  background-color: black;
+}
+// light theme
+.theme.light {
+  h6 {
+    color: $colorTextMain;
+    background-color: $colorLight1;
+    border: $colorLight1 solid 1px;
+  }
+  // header light
+  header {
+    border-bottom: $colorLight1 solid 2px;
+    span {
+      color: $colorTextMain;
+    }
+    background-color: white;
+    .themeChange {
+      button {
+        background-color: $colorLight3;
+        span {
+          color: $colorDark1;
+        }
+      }
+    }
+  }
+  // left section light
+  .leftSection {
+    background-color: $colorLight1;
+    .section-inputs,
+    .link-holder {
+      background-color: white;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      input,
+      textarea {
+        border: 1px solid #ddd;
+      }
+    }
+    .social-links {
+      .link-icon {
+        svg {
+          color: $colorLight2;
+          background-color: $colorTextMain;
+        }
+      }
+    }
+  }
+  // right section light
+  .rightSection {
+    background-color: $colorLight1;
+    .container {
+      outline: solid $colorDark3 4px;
+      .moreLinks {
+        li {
+          background-color: $colorLight3;
+        }
+        svg,
+        p {
+          color: $colorDark1;
+        }
+      }
+    }
+  }
+}
+
+// dark theme
+.theme.dark {
+  h6 {
+    color: $colorLight1;
+    background-color: $colorDark1;
+    border: $colorLight1 solid 3px;
+  }
+  // header dark
+  header {
+    border-bottom: black solid 2px;
+    background-color: $colorDark1;
+    span {
+      color: $colorTextMain;
+    }
+    .themeChange {
+      button {
+        background-color: $colorDark1;
+        span {
+          color: $colorLight1;
+        }
+      }
+    }
+  }
+  // left section dark
+  .leftSection {
+    background-color: $colorDark1;
+    color: white;
+    .section-inputs,
+    .link-holder {
+      background-color: $colorDark2;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      input,
+      textarea,
+      .input-info input {
+        background-color: $colorDark3;
+        border: 1px solid $colorDark3;
+        color: white;
+      }
+    }
+    .social-links {
+      .link-icon {
+        svg {
+          color: $colorLight2;
+          background-color: $colorTextMain;
+        }
+      }
+    }
+    .more-links {
+      button {
+        background-color: $colorDark2;
+      }
+    }
+  }
+
+  // right section dark
+  .rightSection {
+    background-color: $colorDark1;
+    .container {
+      border: solid rgb(155, 155, 155) 3px;
+      background-color: $colorDark2;
+      color: white;
+      .detail {
+        color: white;
+      }
+      .moreLinks {
+        li {
+          background-color: $colorDark3;
+        }
+        svg,
+        p {
+          color: white;
+        }
+      }
+    }
+  }
 }
 
 a {
@@ -25,6 +164,7 @@ a {
   margin: 0;
   padding: 0;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

@@ -13,18 +13,11 @@ import { HiOutlineMail } from "react-icons/hi";
 import "../sass/webshare.scss";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import {
-  Avatar,
-  Container,
-  Grid,
-  Typography,
-  makeStyles,
-} from "@material-ui/core";
+import { Avatar, Grid, Typography, makeStyles } from "@material-ui/core";
 import { Icon } from "@iconify/react";
 import Loading from "./loading";
-
 const style = makeStyles({
-  container: { height: "70vh" },
+  container: { height: "100%", paddingTop: "30px" },
   avatar: {
     width: "120px",
     height: "120px",
@@ -32,24 +25,37 @@ const style = makeStyles({
   },
   name: {
     textTransform: "capitalize",
-    fontWeight: "bold",
+    fontWeight: "600",
   },
   socail: {
-    marginTop: "20px",
+    marginTop: "30px",
   },
   icon: {
-    marginRight: "10px",
+    marginRight: "5px",
   },
   setLoading: {
     display: "none",
   },
 });
 const WebShare = () => {
+  // get Theme
+  const storedTheme = window.localStorage.getItem("THEME_CHANGE");
+  const theme = storedTheme;
+
+  // set loading funtion
   const [loading, setLoading] = useState(false);
+
+  // style
   const classes = style();
+
+  // get param
   const { id } = useParams();
+
+  // get data
   const [profileData, setProfileData] = useState([]);
   const [otherLinks, setOtherLinks] = useState([]);
+  console.log(theme);
+  // get data function
   useEffect(() => {
     axios.get(`http://localhost:8000/PersonalData/${id}`).then((res) => {
       setOtherLinks(res.data.otherLinks);
@@ -59,9 +65,10 @@ const WebShare = () => {
         setLoading(false);
       }, 2000);
     });
-  }, []);
+  }, [id]);
+
   return (
-    <Container className="webshare">
+    <div className={`webshare ${theme}`}>
       {loading ? (
         <Loading />
       ) : (
@@ -70,7 +77,7 @@ const WebShare = () => {
           container
           direction="column"
           component="div"
-          justifyContent="center"
+          justifyContent="top"
           alignItems="center"
         >
           {profileData.photo ? (
@@ -185,26 +192,29 @@ const WebShare = () => {
             component="div"
             className="moreLinksShare"
           >
-            {otherLinks.map((data, i) =>
-              data.labelVal && data.urlVal ? (
-                <Link key={i} to={data.urlVal} target="_blank">
-                  <Icon
-                    icon={data.iconName}
-                    width="24"
-                    height="24"
-                    color="gray"
-                    className={classes.icon}
-                  />
-                  <Typography variant="body1">{data.labelVal}</Typography>
-                </Link>
-              ) : (
-                ""
-              )
-            )}
+            {otherLinks
+              ? otherLinks.map((data, i) =>
+                  data.labelVal && data.urlVal ? (
+                    <Link key={i} to={`https://${data.urlVal}`} target="_blank">
+                      {console.log(data.urlVal)}
+                      <Icon
+                        icon={data.iconName}
+                        width="24"
+                        height="24"
+                        color="gray"
+                        className={classes.icon}
+                      />
+                      <Typography variant="body1">{data.labelVal}</Typography>
+                    </Link>
+                  ) : (
+                    ""
+                  )
+                )
+              : ""}
           </Grid>
         </Grid>
       )}
-    </Container>
+    </div>
   );
 };
 

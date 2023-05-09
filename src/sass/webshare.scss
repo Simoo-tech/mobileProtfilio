@@ -1,5 +1,10 @@
+@use "./_ColorVar" as *;
 // style final page (share Page)
 .webshare {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  position: relative;
   // set style for loading page
   .loading {
     position: absolute;
@@ -11,13 +16,6 @@
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     div {
-      #loader_bars {
-        g {
-          rect {
-            fill: blue;
-          }
-        }
-      }
       p {
         font-size: 17px;
         width: 100%;
@@ -31,7 +29,7 @@
     }
     gap: 7px;
     .link {
-      font-size: 25px;
+      font-size: 30px;
       a {
         color: inherit;
       }
@@ -44,17 +42,79 @@
       width: 40%;
       display: flex;
       margin-bottom: 10px;
-      background-color: #f1f5f9;
-      padding: 10px 20px;
+      padding: 10px;
       border-radius: 10px;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       -ms-border-radius: 10px;
       -o-border-radius: 10px;
       text-decoration: none;
-      color: black;
+      align-items: center;
       p {
+        font-size: 20px;
         text-transform: capitalize;
+      }
+      svg {
+        font-size: 20px;
+      }
+    }
+  }
+  // light mode
+  &.light {
+    background-color: $colorLight3;
+    .loading {
+      div {
+        background-color: $colorLight3 !important;
+        #loader_bars {
+          g rect {
+            fill: $colorDark1;
+          }
+        }
+        p {
+          color: $colorDark1 !important;
+        }
+      }
+    }
+    .moreLinksShare {
+      a {
+        background-color: $colorLight1;
+        color: $colorDark1;
+      }
+    }
+  }
+  &.dark {
+    background-color: $colorDark1;
+    .loading {
+      div {
+        background-color: $colorDark1 !important;
+        #loader_bars {
+          g rect {
+            fill: $colorLight1;
+          }
+        }
+        p {
+          color: $colorLight1 !important;
+        }
+      }
+    }
+    h5,
+    h6 {
+      color: $colorLight1;
+    }
+    .socialLinksShare {
+      li {
+        &:nth-child(2) {
+          color: white;
+        }
+      }
+    }
+    .moreLinksShare {
+      a {
+        background-color: $colorLight3;
+        color: $colorDark1;
+      }
+      svg {
+        color: $colorDark1 !important;
       }
     }
   }

@@ -7,6 +7,7 @@ import Header from "../component/Header";
 import { Grid, Typography, makeStyles } from "@material-ui/core";
 
 // style
+
 const style = makeStyles({
   popUp: {
     zIndex: "10",
@@ -33,8 +34,11 @@ const style = makeStyles({
 
 // 1- Set Values data and id
 const Home = () => {
+  const [theme, setTheme] = useState("light");
   const [Newid, setNewId] = useState(0);
-  const [otherLinks, setOtherLinks] = useState([""]);
+  const [otherLinks, setOtherLinks] = useState([
+    { labelVal: "", urlVal: "", iconName: "" },
+  ]);
   const [clientData, setClientData] = useState({
     name: "",
     about: "",
@@ -50,8 +54,23 @@ const Home = () => {
     email: "",
   });
 
+  // 2- style and make Popup
+  const classes = style();
+  const [copyShowPop, setCopyShowPop] = useState("");
+  const [updateShowPop, setUpdateShowPop] = useState("");
+
+  // 3- theme changing
+  const themeChange = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
   // in render save data to localStorage
   useEffect(() => {
+    window.localStorage.setItem("THEME_CHANGE", theme ? theme : "light");
     window.localStorage.setItem("CLIENT_PROTFILIO_ID", Newid ? Newid : "");
     window.localStorage.setItem(
       "STORE_CLIENT_DATA",
@@ -61,15 +80,10 @@ const Home = () => {
       "CLIENT_OTHERLINKS_DATA",
       otherLinks ? JSON.stringify(otherLinks) : ""
     );
-  }, [clientData, otherLinks, Newid]);
-
-  // style and make Popup
-  const classes = style();
-  const [copyShowPop, setCopyShowPop] = useState("");
-  const [updateShowPop, setUpdateShowPop] = useState("");
+  }, [clientData, otherLinks, Newid, theme]);
 
   return (
-    <Grid container className="Home">
+    <Grid container className={`Home theme  ${theme} `}>
       {/* PopUp for copying link and data update  */}
       <Typography variant="h6" className={`${classes.popUp} ${updateShowPop}`}>
         Data Updated
@@ -77,7 +91,6 @@ const Home = () => {
       <Typography variant="h6" className={`${classes.popUp} ${copyShowPop}`}>
         Link Copied
       </Typography>
-
       {/* pass props to Header for edit button to edit all data after submit it */}
       <Header
         clientData={clientData}
@@ -88,8 +101,9 @@ const Home = () => {
         setNewId={setNewId}
         setCopyShowPop={setCopyShowPop}
         setUpdateShowPop={setUpdateShowPop}
+        themeChange={themeChange}
+        theme={theme}
       />
-
       {/* pass data to left sections */}
       <Grid
         component="section"
@@ -105,9 +119,10 @@ const Home = () => {
           setOtherLinks={setOtherLinks}
           otherLinks={otherLinks}
           setNewId={setNewId}
+          setTheme={setTheme}
+          theme={theme}
         />
       </Grid>
-
       {/* pass data to phone section  */}
       <Grid component="section" item md={5} lg={4} className=" rightSection">
         <Phone

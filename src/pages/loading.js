@@ -10,6 +10,7 @@ export default function Loading({ type, color }) {
         center={false}
         width={"150px"}
         height={"150px"}
+        
       />
     </div>
   );

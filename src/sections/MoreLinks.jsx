@@ -29,8 +29,8 @@ function MoreLinks({ otherLinks, setOtherLinks }) {
   return (
     <Container>
       <Grid container component="section" className="more-links">
-        <Grid item lg={3} sm={3} className={`section-info`}>
-          <Typography variant="h6">Other Links</Typography>
+        <Grid item lg={3} sm={3} className="section-info">
+          <Typography variant="h5">Other Links</Typography>
           <Typography variant="body2">Add other links </Typography>
           <Typography
             variant="body2"
@@ -42,17 +42,16 @@ function MoreLinks({ otherLinks, setOtherLinks }) {
             get icons from here
           </Typography>
         </Grid>
-        <Grid item lg={9} sm={9}>
+        <Grid item xs={12} lg={9} sm={9}>
           {otherLinks
             ? otherLinks.map((val, i) => (
                 <Grid
-                  spacing={2}
                   container
-                  justifyContent="space-between"
+                  justifyContent="center"
                   className="link-holder"
                   key={i}
                 >
-                  <Grid item xs={6} className="input-info">
+                  <Grid item xs={5} className="input-info">
                     <label htmlFor="iconName">icon name (optional)</label>
                     <input
                       required
@@ -61,7 +60,7 @@ function MoreLinks({ otherLinks, setOtherLinks }) {
                       onChange={(e) => handleChange(e, i)}
                     />
                   </Grid>
-                  <Grid item xs={6} className="input-info">
+                  <Grid item xs={5} className="input-info">
                     <label htmlFor="labelVal">Label</label>
                     <input
                       required
@@ -70,7 +69,7 @@ function MoreLinks({ otherLinks, setOtherLinks }) {
                       onChange={(e) => handleChange(e, i)}
                     />
                   </Grid>
-                  <Grid item xs={12} className="input-info ">
+                  <Grid item xs={11} className="input-info ">
                     <label htmlFor="urlVal">url</label>
                     <input
                       required
